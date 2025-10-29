@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let subtotal = 0;
 
-        cart.forEach(item => {
+        cart.forEach((item, index) => {
             const itemTotal = item.price * item.quantity;
             subtotal += itemTotal;
 
@@ -34,11 +34,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="item-quantity">Qty: ${item.quantity}</div>
                 <div class="item-total">$${itemTotal.toFixed(2)}</div>
+                <button class="remove-btn" data-index="${index}">×</button>
             `;
             orderItemsContainer.appendChild(itemElement);
         });
 
+        // Add event listeners to remove buttons
+        const removeButtons = document.querySelectorAll('.remove-btn');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                removeItemFromCart(index);
+            });
+        });
+
         updateTotals(subtotal);
+    }
+
+    // Function to remove item from cart
+    function removeItemFromCart(index) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (index >= 0 && index < cart.length) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCartItems(); // Reload the cart items to update the display
+        }
     }
 
     // Update totals including tax
@@ -136,4 +156,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Load cart items when page loads
     loadCartItems();
-}); 
+});
