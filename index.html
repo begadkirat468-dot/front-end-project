@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!-- Declares the document type as HTML5 -->
+<html lang="en" dir="ltr">
+  <!-- Sets the page language to English and text direction to left-to-right -->
+  <head>
+    <!-- Head section contains metadata and resources -->
+    <meta charset="UTF-8" />
+    <!-- Defines the character encoding as UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Makes the website responsive on all devices -->
+    <title>Pizza Palace</title>
+    <!-- The title shown in the browser tab -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Imports Font Awesome for icons -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Links the external CSS file -->
+  </head>
+
+  <body>
+    <!-- Main content of the page starts here -->
+    <header>
+      <!-- Header section containing logo and navigation -->
+      <h1><i class="fas fa-pizza-slice"></i> Pizza Palace</h1>
+      <!-- Website title with pizza slice icon -->
+      <nav>
+        <!-- Navigation menu -->
+        <a href="#hero">Home</a>
+        <!-- Link to hero section -->
+        <a href="#menu">Menu</a>
+        <!-- Link to menu section -->
+        <a href="#about">About</a>
+        <!-- Link to about section -->
+        <a href="#contact">Contact</a>
+        <!-- Link to contact section -->
+        <a href="#cart">
+          <!-- Link to cart modal -->
+          <i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count"
+            >0</span
+          >)
+          <!-- Cart icon with item count -->
+        </a>
+      </nav>
+    </header>
+
+    <section id="hero">
+      <!-- Hero section (intro banner) -->
+      <div class="hero-content">
+        <!-- Container for hero text -->
+        <h1>Delicious Pizzas Made Fresh Daily</h1>
+        <!-- Main headline -->
+        <p>Order your favorite pizza online and enjoy fast delivery!</p>
+        <!-- Subheadline -->
+        <a href="#menu" class="btn">View Menu</a>
+        <!-- Button to scroll to menu -->
+      </div>
+    </section>
+
+    <section id="menu">
+      <!-- Menu section -->
+      <h2>Our Pizza Menu</h2>
+      <!-- Menu heading -->
+      <div class="pizza-list">
+        <!-- Container for all pizzas -->
+
+        <!-- Margherita -->
+        <div class="pizza-item">
+          <!-- One pizza card -->
+          <div class="pizza-image-container">
+            <!-- Image wrapper -->
+            <img
+              src="photos/Margherita-Pizza_Square-1.jpg"
+              alt="Margherita Pizza"
+              onclick="openImageModal(this.src)"
+            />
+            <!-- Pizza image that opens modal on click -->
+          </div>
+          <h3>Margherita Pizza</h3>
+          <!-- Pizza name -->
+          <p>Classic cheese, tomato sauce, and fresh basil.</p>
+          <!-- Description -->
+          <select id="size-margherita" onchange="updatePrice('margherita')">
+            <!-- Size dropdown -->
+            <option value="small">Small - $25</option>
+            <option value="medium">Medium - $30</option>
+            <option value="large">Large - $35</option>
+          </select>
+          <p class="price" id="price-margherita">$25</p>
+          <!-- Price display -->
+          <button
+            onclick="addToCart('Margherita Pizza', getPrice('margherita'), getSize('margherita'))"
+          >
+            Add to Cart
+            <!-- Add to cart button -->
+          </button>
+        </div>
+
+        <!-- Pepperoni -->
+        <div class="pizza-item">
+          <div class="pizza-image-container">
+            <img
+              src="photos/210391000_BoniciDB_16oz_PepperoniVodka_96494-1_horiz_4x3.jpeg"
+              alt="Pepperoni Pizza"
+              onclick="openImageModal(this.src)"
+            />
+          </div>
+          <h3>Pepperoni Pizza</h3>
+          <p>Spicy pepperoni, mozzarella, and tangy tomato sauce.</p>
+          <select id="size-pepperoni" onchange="updatePrice('pepperoni')">
+            <option value="small">Small - $30</option>
+            <option value="medium">Medium - $35</option>
+            <option value="large">Large - $40</option>
+          </select>
+          <p class="price" id="price-pepperoni">$30</p>
+          <button
+            onclick="addToCart('Pepperoni Pizza', getPrice('pepperoni'), getSize('pepperoni'))"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- Hawaiian -->
+        <div class="pizza-item">
+          <div class="pizza-image-container">
+            <img
+              src="photos/WC5VZ2MKXV7BAVK2POG7RN6V.webp"
+              alt="Hawaiian Pizza"
+              onclick="openImageModal(this.src)"
+            />
+          </div>
+          <h3>Hawaiian Pizza</h3>
+          <p>Ham, pineapple, mozzarella, and tomato sauce.</p>
+          <select id="size-hawaiian" onchange="updatePrice('hawaiian')">
+            <option value="small">Small - $28</option>
+            <option value="medium">Medium - $33</option>
+            <option value="large">Large - $38</option>
+          </select>
+          <p class="price" id="price-hawaiian">$28</p>
+          <button
+            onclick="addToCart('Hawaiian Pizza', getPrice('hawaiian'), getSize('hawaiian'))"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- Veggie -->
+        <div class="pizza-item">
+          <div class="pizza-image-container">
+            <img
+              src="photos/veggie-pizza-recipe-09-2-500x500.jpg"
+              alt="Veggie Pizza"
+              onclick="openImageModal(this.src)"
+            />
+          </div>
+          <h3>Veggie Pizza</h3>
+          <p>Bell peppers, onions, mushrooms, olives, and cheese.</p>
+          <select id="size-veggie" onchange="updatePrice('veggie')">
+            <option value="small">Small - $26</option>
+            <option value="medium">Medium - $31</option>
+            <option value="large">Large - $36</option>
+          </select>
+          <p class="price" id="price-veggie">$26</p>
+          <button
+            onclick="addToCart('Veggie Pizza', getPrice('veggie'), getSize('veggie'))"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- Meat Lovers -->
+        <div class="pizza-item">
+          <div class="pizza-image-container">
+            <img
+              src="photos/meat-lovers-pizza-recipe-3.jpg"
+              alt="Meat Lovers Pizza"
+              onclick="openImageModal(this.src)"
+            />
+          </div>
+          <h3>Meat Lovers Pizza</h3>
+          <p>Pepperoni, sausage, beef, bacon, and ham.</p>
+          <select id="size-meat" onchange="updatePrice('meat')">
+            <option value="small">Small - $35</option>
+            <option value="medium">Medium - $40</option>
+            <option value="large">Large - $45</option>
+          </select>
+          <p class="price" id="price-meat">$35</p>
+          <button
+            onclick="addToCart('Meat Lovers Pizza', getPrice('meat'), getSize('meat'))"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- BBQ Chicken -->
+        <div class="pizza-item">
+          <div class="pizza-image-container">
+            <img
+              src="photos/bbq-chicken-pizza-feature.jpg"
+              alt="BBQ Chicken Pizza"
+              onclick="openImageModal(this.src)"
+            />
+          </div>
+          <h3>BBQ Chicken Pizza</h3>
+          <p>Grilled chicken, BBQ sauce, onions, and mozzarella.</p>
+          <select id="size-bbq" onchange="updatePrice('bbq')">
+            <option value="small">Small - $32</option>
+            <option value="medium">Medium - $37</option>
+            <option value="large">Large - $42</option>
+          </select>
+          <p class="price" id="price-bbq">$32</p>
+          <button
+            onclick="addToCart('BBQ Chicken Pizza', getPrice('bbq'), getSize('bbq'))"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- Supreme -->
+        <div class="pizza-item">
+          <div class="pizza-image-container">
+            <img
+              src="photos/brenbwklcajlem2t90lo__49662.jpg"
+              alt="Supreme Pizza"
+              onclick="openImageModal(this.src)"
+            />
+          </div>
+          <h3>Supreme Pizza</h3>
+          <p>Pepperoni, sausage, veggies, and mozzarella.</p>
+          <select id="size-supreme" onchange="updatePrice('supreme')">
+            <option value="small">Small - $34</option>
+            <option value="medium">Medium - $39</option>
+            <option value="large">Large - $44</option>
+          </select>
+          <p class="price" id="price-supreme">$34</p>
+          <button
+            onclick="addToCart('Supreme Pizza', getPrice('supreme'), getSize('supreme'))"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- Buffalo -->
+        <div class="pizza-item">
+          <div class="pizza-image-container">
+            <img
+              src="photos/Buffalo-Chicken-Pizza-SQ.jpg"
+              alt="Buffalo Pizza"
+              onclick="openImageModal(this.src)"
+            />
+          </div>
+          <h3>Buffalo Pizza</h3>
+          <p>Spicy buffalo chicken, ranch drizzle, and mozzarella.</p>
+          <select id="size-buffalo" onchange="updatePrice('buffalo')">
+            <option value="small">Small - $31</option>
+            <option value="medium">Medium - $36</option>
+            <option value="large">Large - $41</option>
+          </select>
+          <p class="price" id="price-buffalo">$31</p>
+          <button
+            onclick="addToCart('Buffalo Pizza', getPrice('buffalo'), getSize('buffalo'))"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- Four Cheese -->
+        <div class="pizza-item">
+          <div class="pizza-image-container">
+            <img
+              src="photos/Cheese-pizza-1.webp"
+              alt="Four Cheese Pizza"
+              onclick="openImageModal(this.src)"
+            />
+          </div>
+          <h3>Four Cheese Pizza</h3>
+          <p>Mozzarella, cheddar, parmesan, and blue cheese.</p>
+          <select id="size-fourcheese" onchange="updatePrice('fourcheese')">
+            <option value="small">Small - $29</option>
+            <option value="medium">Medium - $34</option>
+            <option value="large">Large - $39</option>
+          </select>
+          <p class="price" id="price-fourcheese">$29</p>
+          <button
+            onclick="addToCart('Four Cheese Pizza', getPrice('fourcheese'), getSize('fourcheese'))"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+      <!-- End pizza list -->
+    </section>
+
+    <section id="about">
+      <!-- About section -->
+      <h2>About Us</h2>
+      <p>
+        At Pizza Palace, we use only the freshest ingredients to craft
+        mouthwatering pizzas. Founded in 2020, we're committed to quality and
+        customer satisfaction.
+      </p>
+    </section>
+
+    <section id="contact">
+      <!-- Contact section -->
+      <h2>Contact Us</h2>
+      <p>
+        Email: info@pizza-palace.com | Phone: 01227003985 | Address: 123 Pizza
+        St, Flavor Town
+      </p>
+    </section>
+
+    <!-- Cart Modal -->
+    <section id="cart" class="modal" style="display: none">
+      <!-- Hidden cart modal -->
+      <div class="modal-content">
+        <!-- Modal box content -->
+        <span class="close" onclick="closeCart()">&times;</span>
+        <!-- Close button -->
+        <h2>Shopping Cart</h2>
+        <!-- Title -->
+        <ul id="cart-items"></ul>
+        <!-- List of items added -->
+        <p>Total: $<span id="total">0.00</span></p>
+        <!-- Displays total price -->
+
+        <!-- Proceed to checkout button -->
+        <button id="checkout-btn" class="checkout-btn" disabled>
+          Proceed to Checkout
+        </button>
+      </div>
+    </section>
+
+    <!-- 🔍 Image Modal -->
+    <section id="image-modal" class="modal" style="display: none">
+      <!-- Hidden image viewer modal -->
+      <div class="modal-content">
+        <span class="close" onclick="closeImageModal()">&times;</span>
+        <!-- Close modal -->
+        <img
+          id="full-image"
+          src=""
+          alt="Pizza Image"
+          style="width: 100%; max-height: 80vh; object-fit: contain"
+        />
+        <!-- Full-size pizza image -->
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+    <!-- External JavaScript file -->
+  </body>
+</html>
+<!-- End of document -->
