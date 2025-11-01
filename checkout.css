@@ -1,340 +1,327 @@
+/* ==================== Base ==================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
 }
 
+/* ==================== Container ==================== */
 .checkout-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background: white;
-    min-height: 100vh;
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* ==================== Header ==================== */
 .checkout-header {
-    text-align: center;
-    margin-bottom: 30px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 20px;
 }
 
 .back-link {
-    display: inline-block;
-    text-decoration: none;
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 10px;
-    transition: color 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
 }
 
 .back-link:hover {
-    color: #333;
+  color: #d32f2f;
 }
 
 .checkout-header h1 {
-    color: #2c3e50;
-    font-size: 28px;
+  color: #d32f2f;
+  font-size: 28px;
+  font-weight: bold;
 }
 
+/* ==================== Order Summary ==================== */
 .order-summary-section {
-    background: white;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e1e1e1;
+  background: #fff;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  border: 1px solid #e1e1e1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .order-summary-section h2 {
-    color: #2c3e50;
-    margin-bottom: 20px;
-    font-size: 20px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
 }
 
 .order-items {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .order-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .order-item:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .item-details {
-    flex: 1;
+  flex: 1;
 }
 
 .item-name {
-    font-weight: 600;
-    color: #2c3e50;
-    margin-bottom: 5px;
+  font-weight: 600;
+  color: #2c3e50;
 }
 
 .item-price {
-    color: #666;
-    font-size: 14px;
+  color: #666;
+  font-size: 14px;
 }
 
 .item-quantity {
-    color: #666;
-    font-size: 14px;
+  color: #666;
+  font-size: 14px;
 }
 
 .item-total {
-    font-weight: 600;
-    color: #2c3e50;
+  font-weight: bold;
+  color: #d32f2f;
 }
 
 .empty-cart-message {
-    text-align: center;
-    color: #666;
-    font-style: italic;
-    padding: 40px 0;
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 30px 0;
 }
 
 .order-total {
-    border-top: 2px solid #e1e1e1;
-    padding-top: 20px;
+  border-top: 2px solid #eee;
+  padding-top: 15px;
 }
 
 .total-line {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 16px;
 }
 
 .total-line.grand-total {
-    font-size: 18px;
-    font-weight: 700;
-    color: #2c3e50;
-    border-top: 1px solid #e1e1e1;
-    padding-top: 10px;
-    margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2c3e50;
 }
 
+/* ==================== Form ==================== */
 .form-section {
-    background: white;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e1e1e1;
+  background: #fff;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  border: 1px solid #e1e1e1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .form-section h2 {
-    color: #2c3e50;
-    margin-bottom: 20px;
-    font-size: 20px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
+  color: #d32f2f;
+  margin-bottom: 20px;
+  font-size: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
 }
 
 .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #555;
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #444;
 }
 
 .form-group input {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
 }
 
 .form-group input:focus {
-    outline: none;
-    border-color: #3498db;
+  outline: none;
+  border-color: #d32f2f;
 }
 
+/* Name and Contact fields grid */
 .name-fields {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
 }
 
+/* Phone + Address styling */
+#phone, #address {
+  border-color: #ccc;
+}
+
+#address {
+  resize: none;
+}
+
+/* ==================== Payment ==================== */
 .payment-methods {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .payment-option {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .payment-option input[type="radio"] {
-    display: none;
+  display: none;
 }
 
 .payment-label {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    border: 2px solid #e1e1e1;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border: 2px solid #e1e1e1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .payment-label:hover {
-    border-color: #3498db;
-    background-color: #f8f9fa;
+  border-color: #d32f2f;
+  background-color: #fff5f5;
 }
 
 .payment-option input[type="radio"]:checked + .payment-label {
-    border-color: #3498db;
-    background-color: #e3f2fd;
+  border-color: #d32f2f;
+  background-color: #ffeaea;
 }
 
 .radio-custom {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #ddd;
-    border-radius: 50%;
-    margin-right: 12px;
-    position: relative;
-    transition: border-color 0.3s ease;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #bbb;
+  border-radius: 50%;
+  margin-right: 10px;
+  position: relative;
 }
 
 .payment-option input[type="radio"]:checked + .payment-label .radio-custom {
-    border-color: #3498db;
+  border-color: #d32f2f;
 }
 
 .payment-option input[type="radio"]:checked + .payment-label .radio-custom::after {
-    content: '';
-    width: 10px;
-    height: 10px;
-    background: #3498db;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: #d32f2f;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
+/* ==================== Card Details ==================== */
 .card-details {
-    margin-top: 20px;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 6px;
-    border: 1px solid #e1e1e1;
+  margin-top: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e1e1e1;
 }
 
 .card-fields {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
 }
 
+/* ==================== Cash Message ==================== */
 .cash-message {
-    margin-top: 20px;
-    padding: 20px;
-    background: #e8f5e8;
-    border: 1px solid #4caf50;
-    border-radius: 6px;
-    color: #2e7d32;
-}
-
-.cash-message p {
-    margin: 0;
+  margin-top: 15px;
+  padding: 15px;
+  background: #e8f5e8;
+  border: 1px solid #4caf50;
+  border-radius: 6px;
+  color: #2e7d32;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
+/* ==================== Submit Button ==================== */
 .submit-btn {
-    width: 100%;
-    padding: 16px;
-    background: #2ecc71;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  width: 100%;
+  padding: 15px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .submit-btn:hover {
-    background: #27ae60;
+  background: #219150;
 }
 
 .submit-btn:active {
-    transform: translateY(1px);
+  transform: translateY(1px);
 }
 
-/* Responsive Design */
+/* ==================== Responsive ==================== */
 @media (max-width: 768px) {
-    .checkout-container {
-        padding: 15px;
-    }
+  .checkout-container {
+    padding: 15px;
+  }
 
-    .name-fields {
-        grid-template-columns: 1fr;
-    }
+  .name-fields, .card-fields {
+    grid-template-columns: 1fr;
+  }
 
-    .card-fields {
-        grid-template-columns: 1fr;
-    }
+  .form-section {
+    padding: 20px;
+  }
 
-    .form-section {
-        padding: 20px;
-    }
+  .order-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 
-    .order-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    .item-total {
-        align-self: flex-end;
-    }
-
+  .item-total {
+    align-self: flex-end;
+  }
 }
 
-
-.remove-btn {
-    background-color: #ff4444;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
-}
-
-.remove-btn:hover {
-    background-color: #cc0000;
-}
