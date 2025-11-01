@@ -98,6 +98,132 @@ function addToCart(baseName, price, size) {
   // Save and update cart display
   saveCart();
   updateCart();
+  
   // Show confirmation popup
   showPopup(`Added to cart: ${name}`);
 }
+
+
+// Update the cart display in the cart modal
+function updateCart() {
+  const cartCount = document.getElementById('cart-count'); // Small cart icon number
+  const cartItems = document.getElementById('cart-items'); // List of cart items
+  const checkoutBtn = document.getElementById('checkout-btn'); // Checkout button
+  if (!cartItems) return; // Stop if cart elements not found
+
+  cartItems.innerHTML = ''; // Clear old items
+  total = 0; // Reset total
+
+  // If cart is empty, show message and disable checkout
+  if (cart.length === 0) {
+    cartItems.innerHTML = '<li style="text-align:center; color:#666;">Your cart is empty</li>';
+    document.getElementById('total').textContent = '0.00';
+    if (checkoutBtn) checkoutBtn.disabled = true;
+    if (cartCount) cartCount.textContent = '0';
+    return;
+  }
+
+  // For each item in the cart, create an <li> element
+  cart.forEach((item, index) => {
+    const itemTotal = item.price * item.quantity; // Calculate item total
+    total += itemTotal; // Add to overall total
+
+    // Create HTML for cart item
+    const li = document.createElement('li');
+    li.classList.add('cart-item');
+    li.innerHTML = `
+      <div class="cart-item-info">
+        <strong>${item.name}</strong><br>
+        $${item.price.toFixed(2)} each
+      </div>
+      <div class="cart-item-controls">
+        <button class="qty-btn" onclick="changeQty(${index}, -1)">−</button>
+        <span class="qty">${item.quantity}</span>
+        <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+        <button class="remove-btn" onclick="removeFromCart(${index})">🗑️</button>
+      </div>
+    `;
+    cartItems.appendChild(li); // Add to list
+  });
+
+  // Update total price
+  document.getElementById('total').textContent = total.toFixed(2);
+
+  // Update total item count for icon badge
+  const totalItems = cart.reduce((sum, it) => sum + it.quantity, 0);
+  if (cartCount) cartCount.textContent = totalItems;
+
+  // Disable checkout if cart empty
+  if (checkoutBtn) checkoutBtn.disabled = cart.length === 0;
+
+  // Save the cart again
+  saveCart();
+}
+
+// Change the quantity of a specific item (+1 or -1)
+function changeQty(index, delta) {
+  if (!cart[index]) return;
+  cart[index].quantity += delta; // Add or subtract from quantity
+  if (cart[index].quantity <= 0) cart.splice(index, 1); // Remove item if quantity is 0
+  saveCart(); // Save new state
+  updateCart(); // Refresh display
+}
+
+// Remove an item from the cart completely
+function removeFromCart(index) {
+  if (index < 0 || index >= cart.length) return; // Check valid index
+  const removed = cart[index].name; // Save item name for message
+  cart.splice(index, 1); // Remove it
+  saveCart(); // Save new cart
+  updateCart(); // Refresh
+  showPopup(`Removed ${removed}`); // Show popup confirmation
+}
+
+// ======================== MODALS ========================
+
+// Open the pizza image in a large modal view
+function openImageModal(src) {
+  document.getElementById('full-image').src = src;
+  document.getElementById('image-modal').style.display = 'flex';
+}
+
+// Close the image modal
+function closeImageModal() {
+  document.getElementById('image-modal').style.display = 'none';
+}
+
+// Close the shopping cart modal
+function closeCart() {
+  document.getElementById('cart').style.display = 'none';
+}
+
+// ======================== INIT ========================
+
+// When user clicks a "Cart" link, open the cart modal
+document.querySelectorAll('a[href="#cart"]').forEach((a) => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault(); // Stop normal link behavior
+    document.getElementById('cart').style.display = 'flex'; // Show the cart
+    updateCart(); // Update the cart contents
+  });
+});
+
+// Run this code once the page finishes loading
+document.addEventListener('DOMContentLoaded', () => {
+  // Update prices for all pizzas on page load
+  Object.keys(pizzaPrices).forEach((key) => {
+    if (document.getElementById(`size-${key}`)) updatePrice(key);
+  });
+
+  // Update cart from saved data
+  updateCart();
+
+  // Handle checkout button click
+  const checkoutBtn = document.getElementById('checkout-btn');
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', () => {
+      // If there are items in the cart, go to checkout page
+      if (cart.length > 0) window.location.href = 'checkout.html';
+    });
+  }
+});
