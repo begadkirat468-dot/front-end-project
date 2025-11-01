@@ -1,0 +1,396 @@
+/* ==================== Custom Fonts ==================== */
+@font-face {
+  font-family: "cerotta"; /* Defines a custom font called 'cerotta' */
+  src: url("type/Cerotta Personal Use Only.ttf"); /* Path to the Cerotta font file */
+}
+
+@font-face {
+  font-family: "avigea"; /* Defines a custom font called 'avigea' */
+  src: url("type/Avigea Italic.ttf"); /* Path to the Avigea Italic font file */
+}
+
+/* ==================== Base Styles ==================== */
+body {
+  font-family: 'Roboto', sans-serif; /* Sets Roboto as the main font */
+  margin: 0; /* Removes default body margin */
+  padding: 0; /* Removes default body padding */
+  background-color: #f9f9f9; /* Sets a light gray background color */
+  color: #333; /* Sets dark gray text color */
+  line-height: 1.6; /* Improves text readability */
+  overflow-x: hidden; /* Prevents horizontal scrollbars */
+}
+
+/* ==================== Header Section ==================== */
+header {
+  background: linear-gradient(135deg, #d32f2f, #ff5722); /* Red-orange gradient background */
+  color: white; /* White text color */
+  padding: 0.3rem 0.8rem; /* Small spacing inside the header */
+  display: flex; /* Uses flexbox layout */
+  justify-content: space-between; /* Spaces items to opposite sides */
+  align-items: center; /* Vertically centers items */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+header h1 {
+  margin: 0; /* Removes default margin */
+  font-size: 1.5rem; /* Sets title size */
+  font-family: 'cerotta', cursive; /* Uses custom Cerotta font */
+}
+
+nav {
+  display: flex; /* Displays navigation links in a row */
+  flex-wrap: wrap; /* Allows links to wrap on smaller screens */
+  justify-content: space-between; /* Spaces links evenly */
+  width: 35%; /* Sets nav width to 35% of header */
+  align-items: center; /* Vertically centers links */
+  z-index: 10; /* Ensures nav stays above background layers */
+}
+
+nav a {
+  color: white; /* White text color for links */
+  margin: 0.5rem 1rem; /* Adds spacing between links */
+  text-decoration: none; /* Removes underline */
+  transition: color 0.3s; /* Smooth hover color transition */
+  font-size: 1.2rem; /* Link text size */
+  font-weight: bold; /* Bold links */
+}
+
+nav a:hover {
+  color: black; /* Turns link black on hover */
+}
+
+/* ==================== Hero Section ==================== */
+#hero {
+  background: url('photos/il_fullxfull.3006317757_3yhi.webp') no-repeat center/cover; /* Background image */
+  height: 60vh; /* Sets hero height to 60% of viewport */
+  display: flex; /* Centers content */
+  align-items: center; /* Vertical alignment */
+  justify-content: center; /* Horizontal alignment */
+  text-align: center; /* Centers text */
+  color: white; /* White text */
+  position: relative; /* Allows overlay positioning */
+}
+
+#hero::before {
+  content: ''; /* Creates overlay element */
+  position: absolute; /* Covers entire hero section */
+  inset: 0; /* Fills the hero area */
+  background: rgba(0, 0, 0, 0.5); /* Adds a dark transparent overlay */
+}
+
+.hero-content {
+  position: relative; /* Keeps content above overlay */
+  z-index: 1; /* Ensures text appears above dark layer */
+  padding: 1rem; /* Adds spacing */
+}
+
+.hero-content h1 {
+  font-size: 3rem; /* Large main heading */
+  font-family: 'avigea', cursive; /* Uses Avigea font */
+  font-weight: lighter; /* Makes text thinner */
+}
+
+.hero-content h2 {
+  font-size: 2rem; /* Smaller subheading */
+  font-family: 'avigea', cursive;
+  font-weight: lighter;
+}
+
+.btn {
+  background: #d32f2f; /* Red button background */
+  color: white; /* White text */
+  padding: 0.75rem 1.5rem; /* Internal spacing */
+  text-decoration: none; /* Removes underline */
+  border-radius: 5px; /* Rounded corners */
+  transition: background 0.3s; /* Smooth hover transition */
+  display: inline-block; /* Inline but with block spacing */
+}
+
+.btn:hover {
+  background: #b71c1c; /* Darker red on hover */
+}
+
+/* ==================== Sections ==================== */
+#menu, #about, #contact {
+  padding: 3rem 2rem; /* Adds section spacing */
+  text-align: center; /* Centers all text */
+}
+
+/* ==================== Pizza Grid ==================== */
+.pizza-list {
+  display: grid; /* Creates grid layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 2rem; /* Space between items */
+  margin-top: 2rem; /* Top margin */
+}
+
+.pizza-item {
+  background: white; /* White card background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow */
+  overflow: hidden; /* Hides overflowing content */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+}
+
+.pizza-item:hover {
+  transform: translateY(-5px); /* Moves up slightly */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Stronger shadow */
+}
+
+.pizza-image-container img {
+  width: 100%; /* Full width image */
+  height: 200px; /* Fixed height */
+  object-fit: cover; /* Keeps aspect ratio */
+  cursor: pointer; /* Pointer on hover */
+  transition: opacity 0.3s; /* Smooth fade effect */
+}
+
+.pizza-image-container img:hover {
+  opacity: 0.8; /* Slight fade on hover */
+}
+
+.pizza-item select {
+  width: 90%; /* Slight padding inside card */
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.pizza-item h3 {
+  margin: 1rem; /* Spacing around pizza name */
+}
+
+.pizza-item p {
+  margin: 0 1rem; /* Horizontal margin for text */
+}
+
+.price {
+  font-weight: bold; /* Bold text */
+  color: #d32f2f; /* Red color for price */
+  font-size: 1.2rem; /* Larger text */
+}
+
+button {
+  background: #d32f2f; /* Red button */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 1rem;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #b71c1c; /* Darker red on hover */
+}
+
+/* ==================== Cart Items ==================== */
+.cart-item {
+  display: flex; /* Layout for item row */
+  justify-content: space-between; /* Space between name and controls */
+  align-items: center;
+  margin: 10px 0;
+  padding: 8px 10px;
+  border-bottom: 1px solid #ddd; /* Divider line */
+}
+
+.cart-item-info {
+  flex: 1; /* Takes remaining width */
+}
+
+.cart-item-controls {
+  display: flex; /* Horizontal layout */
+  align-items: center;
+  gap: 6px; /* Spacing between buttons */
+}
+
+.qty-btn {
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+/* Minus button (gray) */
+.qty-btn:first-child {
+  background: gray;
+}
+.qty-btn:first-child:hover {
+  background: #777;
+}
+
+/* Plus button (green) */
+.qty-btn:nth-child(3) {
+  background: #2ecc71;
+}
+.qty-btn:nth-child(3):hover {
+  background: #27ae60;
+}
+
+/* Remove button (red) */
+.remove-btn {
+  background: #e74c3c;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 5px 8px;
+  color: white;
+  transition: background 0.3s;
+}
+
+.remove-btn:hover {
+  background: #c0392b;
+}
+
+.qty {
+  min-width: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ==================== Modal ==================== */
+.modal {
+  position: fixed; /* Always visible on screen */
+  inset: 0; /* Covers entire viewport */
+  background: rgba(0,0,0,0.5); /* Dark transparent overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* On top of everything */
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto; /* Scroll if too tall */
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* ==================== Footer ==================== */
+footer {
+  background: #222; /* Dark footer */
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 992px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  nav {
+    margin-top: 0.5rem;
+  }
+
+  .pizza-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+  }
+
+  #hero {
+    height: 50vh;
+  }
+
+  .hero-content h2 {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+  }
+
+  nav {
+    flex-direction: column; /* Stack links vertically */
+  }
+
+  nav a {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+  }
+
+  #hero {
+    height: 40vh;
+    background-position: center;
+  }
+
+  .hero-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .pizza-list {
+    grid-template-columns: 1fr; /* One column on small screens */
+  }
+
+  .pizza-item {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .modal-content {
+    padding: 1rem;
+    width: 95%;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}
+
+/* ==================== Checkout Button ==================== */
+.checkout-btn {
+  width: 100%; /* Full width button */
+  background: #27ae60; /* Green background */
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.checkout-btn:hover:enabled {
+  background: #219150; /* Darker green on hover */
+}
+
+.checkout-btn:disabled {
+  background: #ccc; /* Gray when disabled */
+  cursor: not-allowed;
+  opacity: 0.7;
+}
